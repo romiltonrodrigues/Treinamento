@@ -1,0 +1,33 @@
+ROUTINE Exercicio1
+Exercicio1
+
+    READ !,"Informe o valor de X: ", X
+    READ !,"Informe o valor de Y: ", Y
+
+    ; Garante que X seja menor que Y
+    IF X>Y {
+        SET TEMP=X, X=Y, Y=TEMP
+    }
+
+    SET CONT=0
+
+    WRITE !!,"Numeros pares entre ",X," e ",Y,":",!
+    
+
+    FOR I=X:1:Y {
+
+        ; Verifica se é par
+        IF '(I#2) {
+            WRITE I," "
+
+            ; Verifica se é múltiplo de 10 (resto 0)
+            IF '(I#10) {
+                SET CONT=CONT+1
+            }
+        }
+    }
+
+    WRITE !!
+    WRITE "Quantidade de numeros pares multiplos de 10: ",CONT,!
+
+QUIT

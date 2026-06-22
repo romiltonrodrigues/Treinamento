@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "InterSystems Default Dark Modern",
+    "objectscript.conn": {
+        "host": "localhost",
+        "ns": "TREINAMENTO",
+        "https": false,
+        "links": {},
+        "port": 80,
+        "username": "_SYSTEM",
+        "password": "s1r100s",
+        "active": true
+    },
+    "objectscript.syncLocalChanges": "all",
+    "objectscript.compileFlags": "cuk /checkuptodate=expandedonly",
+    "objectscript.export": {
+        "folder": "src",
+        "addCategory": false,
+        "map": {},
+        "atelier": true,
+        "generated": false,
+        "filter": "",
+        "exactFilter": "",
+        "category": "*",
+        "maxConcurrentConnections": 0,
+        "mapped": true
+    },
+    "objectscript.compileOnSave": true,
+}
