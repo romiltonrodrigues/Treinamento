@@ -1,0 +1,21 @@
+ROUTINE Exercicio6
+#;
+Exercicio6 ; Object Script - Exercícios
+    NEW dataStr,dia,mes,ano,horolog,islData,islMes,mesNome
+
+    WRITE !,"Digite a data (DD/MM/AAAA):  "
+    READ dataStr
+
+    ; Separa a data
+    SET dia = $PIECE(dataStr,"/",1)
+    SET mes = $PIECE(dataStr,"/",2)
+    SET ano = $PIECE(dataStr,"/",3)
+    
+    SET horolog = $ZDATEH(dataStr,4)  ; 4 = DD/MM/YYYY    ; Converte para formato interno ($HOROLOG)
+    SET islData = $ZDATE(horolog,18)                      ; Converte para data islâmica tabular (código 18)
+    
+    WRITE !,"1.1 - Data em $HOROLOG: ",horolog
+    WRITE !,"1.2 - Data islâmica (tabular): ",islData
+    WRITE !,"1.3 - Mês islâmico: ",$p($zdt(horolog,9)," ",1)
+
+    QUIT

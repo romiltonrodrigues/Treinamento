@@ -1,0 +1,11 @@
+ROUTINE Exercicio7
+#;
+Exercicio7 ; Object Script - Exercícios
+    
+    WRITE !,"Digite seu nome completo:  "
+    read nome
+    
+    write !,"Quantidade de caracteres (sem contar os espaços) : ",$length(nome),!
+    write !,"Seu nome completo trocando os espaços por |      : ",$replace(nome," ","|"),!
+    
+    Quit
