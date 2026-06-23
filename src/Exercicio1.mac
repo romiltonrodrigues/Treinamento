@@ -1,6 +1,16 @@
 ROUTINE Exercicio1
-Exercicio1
-
+#; 
+Exercicio1(x,y)
+ 
+  	For a= x:1:y 
+  	{
+     	   If a#2=0 Write a_" Esse numero e par" ,!
+  	}
+ 
+	Quit    
+    
+    
+    ; -->
     READ !,"Informe o valor de X: ", X
     READ !,"Informe o valor de Y: ", Y
 
@@ -10,24 +20,18 @@ Exercicio1
     }
 
     SET CONT=0
-
     WRITE !!,"Numeros pares entre ",X," e ",Y,":",!
     
-
     FOR I=X:1:Y {
-
         ; Verifica se é par
         IF '(I#2) {
             WRITE I," "
-
             ; Verifica se é múltiplo de 10 (resto 0)
             IF '(I#10) {
                 SET CONT=CONT+1
             }
         }
-    }
-
-    WRITE !!
-    WRITE "Quantidade de numeros pares multiplos de 10: ",CONT,!
-
-QUIT
+    	}
+   WRITE !!
+   WRITE "Quantidade de numeros pares multiplos de 10: ",CONT,!
+   QUIT

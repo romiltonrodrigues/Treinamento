@@ -1,0 +1,38 @@
+ROUTINE Exercicio5
+#;
+Exercicio5 ;
+
+    ; Declaração de variáveis
+    NEW qtd, i
+    NEW nome, matricula, telefone
+
+    ; Entrada: quantidade de alunos
+    WRITE !,"Digite a quantidade de alunos a cadastrar: "
+    READ qtd
+
+    ; Loop para cadastrar os alunos
+    FOR i=1:1:qtd {
+
+        WRITE !!,"--- Cadastro do aluno ", i, " ---",!
+
+        WRITE "Nome: "
+        READ nome
+
+        WRITE "Matricula: "
+        READ matricula
+
+        WRITE "Telefone: "
+        READ telefone
+
+        ; Armazenando na global ^tAluno
+        SET ^tAluno(i,"nome") = nome
+        SET ^tAluno(i,"matricula") = matricula
+        SET ^tAluno(i,"telefone") = telefone
+
+        WRITE "Aluno ", i, " cadastrado com sucesso!",!
+    }
+
+    WRITE !!,"Cadastro finalizado!",!
+
+    QUIT
+	

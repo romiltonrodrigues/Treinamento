@@ -1,0 +1,10 @@
+ROUTINE Exercicio2
+#; 
+Exercicio2(x,y)
+
+  For a= x:1:y 
+  {
+     If a#2'=0 Write a_" Esse numero e impar", !
+  }
+  Quit
+ 

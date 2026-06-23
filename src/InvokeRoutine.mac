@@ -1,0 +1,9 @@
+ROUTINE InvokeRoutine
+#;
+InvokeRoutine ; Invoke Routine
+	;
+	write "Invocando rotina..."
+	do ^Exercicio1(2,20)
+	do ^Exercicio2(2,20)
+	;
+	Quit
