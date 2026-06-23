@@ -16,6 +16,6 @@ Exercicio6 ; Object Script - Exercícios
     
     WRITE !,"1.1 - Data em $HOROLOG: ",horolog
     WRITE !,"1.2 - Data islâmica (tabular): ",islData
-    WRITE !,"1.3 - Mês islâmico: ",$p($zdt(horolog,9)," ",1)
+    WRITE !,"1.3 - Mês islâmico: ",$p(islData," ",2)
 
     QUIT

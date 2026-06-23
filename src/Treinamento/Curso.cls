@@ -1,0 +1,4 @@
+Class  Extends %RegisteredObject
+{
+
+}

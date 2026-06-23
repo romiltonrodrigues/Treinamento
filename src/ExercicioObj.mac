@@ -1,0 +1,26 @@
+ROUTINE ExercicioObj
+#;
+ExercicioObj ; 
+
+	kill ^Treinamento.Data.CursoD	
+	set curso = ##class(Treinamento.Data.Curso).%New()
+	set curso.Nome = "Obj Script"
+	set curso.Duracao = 40
+	set curso.Preco = 1500	
+	set status= curso.%Save()
+	
+	kill ^Treinamento.Data.InstrutorD
+	set instrutor = ##class(Treinamento.Data.Instrutor).%New()
+	set instrutor.Matricula = "234563"
+	set instrutor.Nome = "ANDERSON SOARES"
+	set instrutor= instrutor.%Save()
+	
+	kill ^Treinamento.Data.AlunoD
+	set aluno = ##class(Treinamento.Data.Aluno).%New()
+	set aluno.Matricula = "123456"
+	set aluno.Nome = "ROMILTON RODRIGUES DE ALMEIDA"
+	SET aluno.Idade = 55
+	set aluno= aluno.%Save()
+		
+	Quit
+	
