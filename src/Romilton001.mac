@@ -1,9 +1,0 @@
-ROUTINE Romilton001
-Romilton001 ; Rotina Teste
-	;
-	set a=10,b=20
-	set c=30,d=40
-	set e=50
-	;
-
-	quit
