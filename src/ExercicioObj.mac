@@ -3,24 +3,57 @@ ROUTINE ExercicioObj
 ExercicioObj ; 
 
 	kill ^Treinamento.Data.CursoD	
+	kill ^Treinamento.Data.InstrutorD
+	kill ^Treinamento.Data.AlunoD
+	kill ^Treinamento.Data.TurmaD
+
+	; -- Curso
 	set curso = ##class(Treinamento.Data.Curso).%New()
 	set curso.Nome = "Obj Script"
 	set curso.Duracao = 40
 	set curso.Preco = 1500	
 	set status= curso.%Save()
 	
-	kill ^Treinamento.Data.InstrutorD
+	; -- Instrutor
 	set instrutor = ##class(Treinamento.Data.Instrutor).%New()
 	set instrutor.Matricula = "234563"
 	set instrutor.Nome = "ANDERSON SOARES"
-	set instrutor= instrutor.%Save()
+	set status= instrutor.%Save()
 	
+	; -- Aluno
 	kill ^Treinamento.Data.AlunoD
-	set aluno = ##class(Treinamento.Data.Aluno).%New()
-	set aluno.Matricula = "123456"
-	set aluno.Nome = "ROMILTON RODRIGUES DE ALMEIDA"
-	SET aluno.Idade = 55
-	set aluno= aluno.%Save()
+	set aluno1 = ##class(Treinamento.Data.Aluno).%New()
+	set aluno1.Matricula = "123401"
+	set aluno1.Nome = "ROMILTON RODRIGUES DE ALMEIDA"
+	SET aluno1.Idade = 55
+	set status= aluno1.%Save()
+	w !,"Salvando Aluno-1"
 		
+	set aluno2 = ##class(Treinamento.Data.Aluno).%New()
+	set aluno2.Matricula = "123402"
+	set aluno2.Nome = "JANECLEIDE RODRIGUES DE ALMEIDA"
+	SET aluno2.Idade = 54
+	set status= aluno2.%Save()
+	w !,"Salvando Aluno-2"
+
+	set aluno3 = ##class(Treinamento.Data.Aluno).%New()
+	set aluno3.Matricula = "123403"
+	set aluno3.Nome = "JULINA BRITO DE ALMEIDA"
+	SET aluno3.Idade = 28
+	set status= aluno3.%Save()
+	w !,"Salvando Aluno-3"
+	 
+	; -- Turma
+	set turma = ##class(Treinamento.Data.Turma).%New()
+	set turma.DataInicio = ""
+	set turma.Status = "Incompleto"
+	set turma.Curso = curso
+	set turma.Instrutor = instrutor
+	Do turma.Alunos.Insert(aluno1)
+	Do turma.Alunos.Insert(aluno2)
+	Do turma.Alunos.Insert(aluno3)
+	set status= turma.%Save()
+	w !,"Salvando Turma"
+
 	Quit
 	
