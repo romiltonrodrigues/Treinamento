@@ -51,9 +51,11 @@ ExercicioObj ;
 	set turma.Status = "Incompleto"
 	set turma.Curso = curso
 	set turma.Instrutor = instrutor
+
 	Do turma.Alunos.Insert(aluno1)
 	Do turma.Alunos.Insert(aluno2)
 	Do turma.Alunos.Insert(aluno3)
+	
 	set status= turma.%Save()
 	w !,"Salvando Turma...",!
 
