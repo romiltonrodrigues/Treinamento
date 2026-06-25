@@ -15,6 +15,18 @@ Property StatusProcesso As %String [ SqlColumnNumber = 7 ];
 
 Property ListaLog As list Of Treinamento.VO.LogMensagem;
 
+ClassMethod CriarFinalizar(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem
+{
+}
+
+ClassMethod ConsultarLog(pStatus As %String, pDataInicio As %String, pDataFim As %String) As Treinamento.Data.LogMensagem
+{
+}
+
+ClassMethod ConsultarLogPaginacao(pStatus As %String, pLastId As %String, pPagSize As %String, pDataFim As %String) As Treinamento.Data.LogMensagem
+{
+}
+
 ClassMethod CriarEntrada(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem
 {
     set tsc = $$$OK
