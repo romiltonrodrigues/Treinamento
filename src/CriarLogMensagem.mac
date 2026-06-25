@@ -1,0 +1,7 @@
+ROUTINE CriarLogMensagem
+#; 
+    set pDataIncio = ##class(%UTC).NowLocal()
+    set pStatus = 1
+    set pClasse = ""
+    
+    Quit

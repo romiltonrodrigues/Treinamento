@@ -11,9 +11,8 @@ Property Alunos As list Of Treinamento.Data.Aluno [ SqlColumnNumber = 5 ];
 
 Property Curso As Treinamento.Data.Curso [ SqlColumnNumber = 6 ];
 
-
-Method VerificaStatus(curso As %String) As %String 
- {
+Method VerificaStatus(curso As %String) As %String
+{
     Set status = $$$OK
     Set statusTurma = ""
     Set sql = "SELECT * FROM Treinamento_Data.Turma where Curso-> Nome = '"_curso_"'"
@@ -31,10 +30,10 @@ Method VerificaStatus(curso As %String) As %String
     }
 
     return statusTurma
- }
+}
 
 ClassMethod ImprimeTurma(curso As %String) As %Status
- {
+{
     Set status = $$$OK    
     try 
     {
@@ -65,9 +64,8 @@ ClassMethod ImprimeTurma(curso As %String) As %Status
       Throw exception
     
     }
-    return 
- }
- 
+    return
+}
 
 Storage Default
 {
