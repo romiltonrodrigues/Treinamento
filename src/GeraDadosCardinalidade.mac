@@ -1,11 +1,28 @@
 ROUTINE CriarIndex
 #; 
 #include %occStatus
+Clean ; -- Remover Registros  
+    /* Limpeza Rapida
+    KILL ^Treinamento.Data.UsuarioD
+    KILL ^Treinamento.Data.UsuarioI
+    KILL ^Treinamento.Data.PerfilD
+    KILL ^Treinamento.Data.PerfilI
+    KILL ^Treinamento.Data.NivelD
+    KILL ^Treinamento.Data.NivelI
+    WRITE !,"Dados removidos via global!",!
+    */
 
-    kill ^Treinamento.Data.NivelI
-    kill ^Treinamento.Data.PerfilI
-    kill ^Treinamento.Data.UsuarioI
+    // Ordem IMPORTANTE por causa das relações | Usuario -> Perfil -> Nivel
 
+    DO ##class(Treinamento.Data.Usuario).%DeleteExtent()
+    WRITE !,"Usuarios removidos"
+    DO ##class(Treinamento.Data.Perfil).%DeleteExtent()
+    WRITE !,"Perfis removidos"
+    DO ##class(Treinamento.Data.Nivel).%DeleteExtent()
+    WRITE !,"Niveis removidos"
+    WRITE !!,"Limpeza finalizada!",!
+Gera ; -- Geração de Dados
+    ;
     set qtdNiveis=3
     set qtdPerfis=3
     set qtdUsuarios=5
