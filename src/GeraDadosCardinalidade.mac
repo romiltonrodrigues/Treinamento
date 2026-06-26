@@ -1,4 +1,4 @@
-ROUTINE CriarIndex
+ROUTINE GerarDadosCardinalidade
 #; 
 #include %occStatus
 Clean ; -- Remover Registros  
