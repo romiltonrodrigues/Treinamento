@@ -9,6 +9,10 @@ Property Sexo As %String [ SqlColumnNumber = 4 ];
 
 Property Email As %String [ SqlColumnNumber = 5 ];
 
+Index UsernameIndex On Nome [ Unique ];
+
+Relationship Perfil As Treinamento.Data.Perfil [ Cardinality = one, Inverse = Usuarios ];
+
 Storage Default
 {
 <Data name="UsuarioDefaultData">
@@ -26,6 +30,9 @@ Storage Default
 </Value>
 <Value name="5">
 <Value>Email</Value>
+</Value>
+<Value name="6">
+<Value>Perfil</Value>
 </Value>
 </Data>
 <DataLocation>^Treinamento.Data.UsuarioD</DataLocation>

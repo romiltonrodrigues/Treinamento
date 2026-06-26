@@ -15,6 +15,11 @@ Property StatusProcesso As %String [ SqlColumnNumber = 7 ];
 
 Property ListaLog As list Of Treinamento.VO.LogMensagem;
 
+
+ClassMethod BuscarLogPorIDJSON(pID As %Integer) As %DynamicObject
+{
+}
+
 ClassMethod Finalizar(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem
 {
 }

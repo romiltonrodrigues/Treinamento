@@ -5,6 +5,10 @@ Property NomePerfil As %String [ SqlColumnNumber = 2 ];
 
 Property Codigo As %String [ SqlColumnNumber = 3 ];
 
+Relationship Usuarios As Treinamento.Data.Usuario [ Cardinality = many, Inverse = Perfil ];
+Relationship Nivel As Treinamento.Data.Nivel [ Cardinality = one, Inverse = Perfis ];
+
+
 Storage Default
 {
 <Data name="PerfilDefaultData">
@@ -16,6 +20,9 @@ Storage Default
 </Value>
 <Value name="3">
 <Value>Codigo</Value>
+</Value>
+<Value name="4">
+<Value>Nivel</Value>
 </Value>
 </Data>
 <DataLocation>^Treinamento.Data.PerfilD</DataLocation>

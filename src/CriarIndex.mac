@@ -1,0 +1,62 @@
+ROUTINE CriarIndex
+#; 
+#include %occStatus
+
+    kill ^Treinamento.Data.NivelI
+    kill ^Treinamento.Data.PerfilI
+    kill ^Treinamento.Data.UsuarioI
+
+    set qtdNiveis=3
+    set qtdPerfis=3
+    set qtdUsuarios=5
+
+    WRITE !,"Iniciando geração de dados...",!
+
+    // ====== NIVEIS ======
+    FOR i=1:1:qtdNiveis {
+        SET nivel = ##class(Treinamento.Data.Nivel).%New()
+        SET nivel.NomeNivel = "Nivel "_i
+        SET nivel.Codigo = "N"_i
+
+        SET sc = nivel.%Save()
+
+        IF $$$ISERR(sc) DO
+        . WRITE !,"Erro ao salvar Nivel ",i
+        ELSE  DO
+        . WRITE !,"Nivel criado: ",nivel.%Id()
+
+        // ====== PERFIS ======
+        FOR j=1:1:qtdPerfis {
+            SET perfil = ##class(Treinamento.Data.Perfil).%New()
+            SET perfil.NomePerfil = "Perfil "_i_"."_j
+            SET perfil.Codigo = "P"_i_j
+            SET perfil.Nivel = nivel
+
+            SET sc = perfil.%Save()
+
+            IF $$$ISERR(sc) DO
+            . WRITE !,"Erro ao salvar Perfil ",i,".",j
+            ELSE  DO
+            . WRITE !,"  Perfil criado: ",perfil.%Id()
+
+            // ====== USUARIOS ======
+            FOR k=1:1:qtdUsuarios {
+                SET usuario = ##class(Treinamento.Data.Usuario).%New()
+                SET usuario.Nome = "User"_i_j_k
+                SET usuario.SobreNome = "Sobrenome"_k
+                SET usuario.Sexo = $SELECT(k#2:"M",1:"F")
+                SET usuario.Email = "user"_i_j_k_"@teste.com"
+                SET usuario.Perfil = perfil
+
+                SET sc = usuario.%Save()
+
+                IF $$$ISERR(sc) DO
+                . WRITE !,"Erro ao salvar Usuario ",k
+                ELSE  DO
+                . WRITE !,"    Usuario criado: ",usuario.%Id()
+            }
+        }
+    }
+
+    WRITE !!,"Finalizado!",!
+    QUIT
