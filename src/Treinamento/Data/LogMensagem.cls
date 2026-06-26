@@ -15,7 +15,7 @@ Property StatusProcesso As %String [ SqlColumnNumber = 7 ];
 
 Property ListaLog As list Of Treinamento.VO.LogMensagem;
 
-ClassMethod CriarFinalizar(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem
+ClassMethod Finalizar(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem
 {
 }
 
@@ -25,6 +25,11 @@ ClassMethod ConsultarLog(pStatus As %String, pDataInicio As %String, pDataFim As
 
 ClassMethod ConsultarLogPaginacao(pStatus As %String, pLastId As %String, pPagSize As %String, pDataFim As %String) As Treinamento.Data.LogMensagem
 {
+    #Dim StatusCode     As %Status               = $SYSTEM.Status.OK()
+    #Dim exception      As %Exception.General   = ""
+    #Dim SQL            As %String
+    #Dim resultSet      As %ResultSet.Custom    
+    #Dim entry          As LogMensagem          = ..%New()
 }
 
 ClassMethod CriarEntrada(pMetodo As %String, pClasse As %String) As Treinamento.Data.LogMensagem

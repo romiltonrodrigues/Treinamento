@@ -14,5 +14,24 @@ ROUTINE CriarLogMensagem
 
     set LogMenasgemCriar = ##class(Treinamento.Data.LogMensagem).CriarEntrada("pmetodo","pclasse")
     set IdLog = LogMenasgemCriar.%Id()
+
+    set LogFinalizar  = ##class(Treinamento.Data.LogMensagem).Finalizar(IdLog,pStatusProcesso,pStatusCode)
+    set objConsultaLog = ##class(Treinamento.Data.LogMensagem).ConsultarLog(pStatus)
+
+    for i=1:1:objConsultaLog.ListaLog.GetAt(i)
+    {
+        set item = objConsultaLog.ListaLog.GetAt(i)
+        Write "Item ",i,!
+        Write "Metodo .... : ", item.Metodo
+        Write "Classe .... : ", item.Metodo
+        Write "Inicio .... : ", item.Metodo
+        Write "Fim    .... : ", item.Metodo
+        Write "Status .... : ", item.Metodo
+        Write "StatusProcesso  : ",item.Metodo
+
+    }
+    
+
+
     
     Quit
